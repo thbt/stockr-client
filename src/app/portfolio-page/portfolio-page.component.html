@@ -1,0 +1,41 @@
+<mat-card id="cash">
+  <mat-card-header>
+    <mat-card-title>Available cash</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    100.000,00 AU$
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>BUY</button>
+    <button mat-button>SELL</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card id="holdings">
+  <mat-card-header>
+    <mat-card-title>Holdings</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let share"> {{share.symbol}} </td>
+      </ng-container>
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let share"> {{share.quantity}} </td>
+      </ng-container>
+      <ng-container matColumnDef="currentValue">
+        <th mat-header-cell *matHeaderCellDef> Current Value </th>
+        <td mat-cell *matCellDef="let share"> {{share.currentValue}} </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let share"> TODO Actions </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
